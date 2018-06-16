@@ -13,6 +13,7 @@ muf <- mean(houseWork$hours[houseWork$sex == 'f'])
 mum <- mean(houseWork$hours[houseWork$sex == 'm'])
 
 ## c)
+## /score -0.5 for using character 'TRUE'/'FALSE' values instead of logical values TRUE/FALSE
 houseWork$female <- ifelse(houseWork$sex == 'f', 'TRUE', 'FALSE')
 houseWork$male <- ifelse(houseWork$sex == 'm', 'TRUE', 'FALSE')
 
@@ -21,6 +22,7 @@ fit <- lm(hours ~ female, data = houseWork)
 summary(fit)
 
 ## e)
+## /score -2
 ## The intercept is positive and it shows that if no women are involved in housework
 ## the work that will be done by all men is the average value of work hours by men per week
 ## The other coefficient (beta1) is negative which, so we can conclude that
@@ -30,7 +32,7 @@ summary(fit)
 
 
 ## f)
-
+## /score -2
 ## We can rewrite the null hypothesis as: H0 beta1 >= 0
 ## in this case, the alternative hypothesis would be: H1 beta1 < 0
 ## This means that the null hypothesis states that women's work hours contribute to the average population work hours
@@ -39,6 +41,7 @@ summary(fit)
 ## women do not contribute and in fact decrease the overall average work hours
 
 ## g)
+## /score -2
 populationMean <- mean(houseWork$hours)
 testStatistic <- sqrt(11016)*(muf - populationMean) / 0.3186
 pt(testStatistic, df = 11014)
@@ -48,10 +51,12 @@ pt(testStatistic, df = 11014)
 ##null hypothesis if it is true. Thus we can reject the null hypothesis.
 
 ## i)
+## /score -2
 ## The test assumes that the population follows a t-distribution, however our expectations are that the
 ## distribution is normal or normal exponential, because we are estimating time values
 
 ## j)
+## /score -2
 fit1 <- lm(hours ~ female + male, data = houseWork)
 summary(fit1)
 ##Our model is:
